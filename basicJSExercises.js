@@ -76,14 +76,16 @@ HINT: Use split() and substring()
 
  --------------------------- */
 
-function protect_email(email) {
-  return "protected email";
-}
+    function protect_email(email) {
+        var parts = email.split(/\.|\_/);
+          var parts1 = email.split('@');
+            return parts[0] + '.' + parts[1][0]+'...@'+parts1[1];
+ }
 
-console.log("Protected email:");
-/* Uncomment the following to check */
-  //console.log(protect_email("harry_potter@gmail.com"));
-  //console.log(protect_email("sarah.connor@gmail.com"));
+      console.log("Protected email:");
+ /* Uncomment the following to check */
+      console.log(protect_email("harry_potter@gmail.com"));
+        console.log(protect_email("sarah.connor@gmail.com"));
 
 
 
@@ -102,14 +104,16 @@ abeemrstw
 HINT: Use join(), split() and sort() functions
  --------------------------- */
 
-function alphabetic_order(word) {
-  return "rearranged word";
-}
+      function alphabetic_order(word) {
+          var rearranged_word = word.split("");
+              rearranged_word.sort();
+                  return rearranged_word.join();
+ }
 
-console.log("Alphabetic Order:");
-/* Uncomment the following to check */
-  // console.log(alphabetic_order("webmaster"));
-  // console.log(alphabetic_order("textbook"));
+        console.log("Alphabetic Order:");
+ /* Uncomment the following to check */
+          console.log(alphabetic_order("webmaster"));
+              console.log(alphabetic_order("textbook"));
 
 
 
@@ -128,13 +132,17 @@ Output:
 
  --------------------------- */
 
-function remove_duplicates(arr) {
-  console.log("Duplicates removed from array");
-}
+ function remove_duplicates(arr) {
+   var array = [arr[0]];
 
-console.log("Remove Duplicate Values:");
-/* Uncomment the following to check */
-  // remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
+   for(var i=1; i<arr.length; i++){ if(array.indexOf(arr[i]) < 0){  array.push(arr[i]); } }
+   console.log(array);
+   return array;
+ }
+
+ console.log("Remove Duplicate Values:");
+ /* Uncomment the following to check */
+   remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
 
 
 /* ---------------------------
@@ -152,17 +160,28 @@ Output:
 HINT: Use toString() and parseInt() functions
  --------------------------- */
 
-function dash_in_odd(number) {
-  console.log("odd numbers separated by dashes");
-}
+ function dash_in_odd(number) {
+   console.log("odd numbers separated by dashes");
+   var string = number.toString();
+   var result = [string [0]];
+    for(var x=1; x<string .length; x++)
+     {
+     if((string [x-1]%2 === 1)&&(string [x]%2 === 1))
+      {  result.push('-', string [x]);
+      } else {
+          result.push(string [x]);
+      }
+   }
 
-console.log("Dash between ODD Numbers:");
-/* Uncomment the following to check */
-  dash_in_odd(100);
-  dash_in_odd(1356);
-  dash_in_odd(13790);
-  dash_in_odd(132459784);
+ console.log(result.join(''));
+ }
 
+          console.log("Dash between ODD Numbers:");
+              /* Uncomment the following to check */
+              dash_in_odd(100);
+                dash_in_odd(1356);
+                    dash_in_odd(13790);
+                        dash_in_odd(132459784);
 
 /* ---------------------------
 
@@ -176,13 +195,18 @@ HINT: Use Math.ceil() and Math.random()
 
  --------------------------- */
 
-function guessing_game(guess) {
-  // Get a random integer from 1 to 10 inclusive
-  console.log("matched or unmatched?");
-}
+        function guessing_game(guess) {
+          // Get a random integer from 1 to 10 inclusive
+        console.log("matched or unmatched?");
+        var num = Math.ceil(Math.random() * 10);
+        if (guess == num)
+        alert("Good Work");
+        else
+        alert("Not matched, the number was " + num);
+ }
 
-console.log("Guessing Game:");
-/* Uncomment the following to check */
-  // var guess = prompt('Guess the number between 1 and 10 inclusive');
-  // console.log("User guessed: "+ guess);
-  // guessing_game(guess);
+        console.log("Guessing Game:");
+ /* Uncomment the following to check */
+        var guess = prompt('Guess the number between 1 and 10 inclusive');
+        console.log("User guessed: "+ guess);
+        guessing_game(guess);
